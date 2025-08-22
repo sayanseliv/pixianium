@@ -1,26 +1,74 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	/* Gray / Dark scale */
+	--gray-50: rgba(245, 247, 250, 0.7);
+	--gray-100: rgba(245, 247, 250, 0.5);
+	--gray-200: #c0c0c0;
+	--gray-300: #8c8c8e;
+	--gray-400: #6a6a6f;
+	--gray-500: #333333;
+	--gray-600: #1a1a24;
+	--gray-700: #151518;
+	--gray-800: #0d0d1a;
+	--gray-900: #040404;
+
+	/* Silver / Main */
+	--silver: #c0c0c0;
+	--silver-rgb: 192, 192, 192;
+
+	/* Blue / Neon shades */
+	--blue-300: #00aeef;
+	--blue-400: #33cfff;
+	--blue-500: #007bbf;
+	--blue-600: #2684ff;
+	--blue-rgb: 0, 174, 239;
+
+	/* Fuchsia / Neon */
+	--fuchsia-300: #ff2ecc;
+	--fuchsia-rgb: 255, 46, 204;
+
+	/* Lime / Neon */
+	--lime-300: #afff00;
+	--lime-rgb: 175, 255, 0;
+
+	/* Purple / Neon */
+	--purple-300: #8a2be2;
+	--purple-rgb: 138, 43, 226;
+
+	/* UI / Secondary shades */
+	--white-cold: #f5f7fa;
+	--steel-blue: #6a8caf;
+
+	/* Shadows */
+	--shadow-dark: rgba(0, 0, 0, 0.6);
+	--shadow-light: rgba(255, 255, 255, 0.1);
+
+	/* Fonts */
+	--font-sans: 'Manrope', Arial, Helvetica, sans-serif;
+
+	/* Defaults */
+	--background: var(--gray-800);
+	--foreground: var(--silver);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* Light/Dark mode */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	:root {
+		--background: var(--gray-800);
+		--foreground: var(--silver);
+	}
+}
+@media (prefers-color-scheme: light) {
+	:root {
+		--background: var(--gray-50);
+		--foreground: var(--gray-900);
+	}
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	background-color: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-sans);
+	transition: background 0.3s ease, color 0.3s ease;
 }
