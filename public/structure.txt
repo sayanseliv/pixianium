@@ -1,0 +1,141 @@
+src/
+├── app/
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx                    # Home page
+│   ├── loading.tsx                 # Global loading UI
+│   ├── not-found.tsx              # 404 page
+│   │
+│   ├── about/
+│   │   ├── page.tsx               # About project/Author
+│   │   └── loading.tsx
+│   │
+│   ├── pixi-animations/           # Pixi.js demo
+│   │   ├── page.tsx               # List of all Pixi demos
+│   │   ├── loading.tsx
+│   │   ├── particles/
+│   │   │   └── page.tsx           # Interactive particles
+│   │   ├── fluid-simulation/
+│   │   │   └── page.tsx           # Fluid simulation
+│   │   ├── interactive-graphics/
+│   │   │   └── page.tsx           # Interactive graphics
+│   │   └── text-effects/
+│   │       └── page.tsx           # Text Animation
+│   │
+│   ├── threejs-animations/        # Three.js demo
+│   │   ├── page.tsx               # List of 3D demos
+│   │   ├── loading.tsx
+│   │   ├── 3d-models/
+│   │   │   └── page.tsx           # Animated 3D models
+│   │   ├── shaders/
+│   │   │   └── page.tsx           # Custom shaders
+│   │   ├── physics/
+│   │   │   └── page.tsx           # Physics (cannon.js)
+│   │   └── environments/
+│   │       └── page.tsx           # 3D environments
+│   │
+│   ├── gsap-animations/           # GSAP demo
+│   │   ├── page.tsx               # List of  GSAP demo
+│   │   ├── loading.tsx
+│   │   ├── morphing/
+│   │   │   └── page.tsx           # SVG morphing
+│   │   ├── scroll-animations/
+│   │   │   └── page.tsx           # ScrollTrigger effects
+│   │   ├── timeline-demos/
+│   │   │   └── page.tsx           # Complex timelines
+│   │   └── text-animations/
+│   │       └── page.tsx           # Text Animation
+│   │
+│   ├── css-animations/            # Pure CSS animations
+│   │   ├── page.tsx               # List of  CSS demo
+│   │   ├── loading.tsx
+│   │   ├── keyframes/
+│   │   │   └── page.tsx           # CSS keyframes
+│   │   ├── transitions/
+│   │   │   └── page.tsx           # CSS transitions
+│   │   ├── transforms/
+│   │   │   └── page.tsx           # 3D transforms
+│   │   └── hover-effects/
+│   │       └── page.tsx           # Hover effects
+│   │
+│   ├── animejs-demos/             # Anime.js demo
+│   │   ├── page.tsx               # List of Anime.js demo
+│   │   ├── loading.tsx
+│   │   ├── svg-animations/
+│   │   │   └── page.tsx           # SVG animations
+│   │   ├── dom-animations/
+│   │   │   └── page.tsx           # DOM elements
+│   │   └── complex-sequences/
+│   │       └── page.tsx           # Complex sequences
+│   │
+│   ├── tutorials/                 # Educational section
+│   │   ├── page.tsx               # List of all tutorials
+│   │   ├── loading.tsx
+│   │   ├── getting-started/
+│   │   │   └── page.tsx           # Getting started
+│   │   ├── pixi-basics/
+│   │   │   └── page.tsx           # Pixi.js Basics
+│   │   ├── threejs-fundamentals/
+│   │   │   └── page.tsx           # Three.js Basics
+│   │   ├── gsap-guide/
+│   │   │   └── page.tsx           # GSAP Guide
+│   │   └── performance-tips/
+│   │       └── page.tsx           # Productivity Tips
+│   │
+│   └── api/                       # API routes 
+│       ├── animations/
+│       │   └── route.ts           # List of animations?
+│       └── code-examples/
+│           └── route.ts           # Encoding examples?
+│
+├── components/                  
+│   ├── ui/                       # UI components
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── CodeBlock.tsx         # Code highlighting
+│   │   ├── Navigation.tsx        # Navigation
+│   │   └── Footer.tsx
+│   │
+│   ├── animations/               # Animation Components
+│   │   ├── PixiCanvas.tsx        # Wrap for Pixi
+│   │   ├── ThreeCanvas.tsx       # Wrapper for Three.js
+│   │   ├── GSAPWrapper.tsx       # GSAP components
+│   │   └── AnimeWrapper.tsx      # Anime.js components
+│   │
+│   ├── layouts/               
+│   │   ├── DemoLayout.tsx        # Layout for demo
+│   │   ├── TutorialLayout.tsx    # Layout for tutorials
+│   │   └── CategoryLayout.tsx    # Layout for categories
+│   │
+│   └── common/                
+│       ├── LoadingSpinner.tsx
+│       ├── ErrorBoundary.tsx
+│       └── BackButton.tsx
+│
+├── lib/                          # Utilities and Configuration
+│   ├── utils.ts                  # General utilities
+│   ├── animations/               # Animation logic
+│   │   ├── pixi-utils.ts
+│   │   ├── three-utils.ts
+│   │   ├── gsap-utils.ts
+│   │   └── anime-utils.ts
+│   ├── constants.ts              # Application Constants
+│   └── types.ts                  # TypeScript types
+│
+├── styles/                  
+│   ├── globals.css             
+│   ├── animations.css           # CSS animations
+│   └── components.css           # Styles components
+│
+├── public/                      # Static files
+│   ├── images/
+│   │   ├── demos/               # Preview demo
+│   │   └── tutorials/           # Images for tutorials
+│   ├── models/                  # 3D models for Three.js
+│   ├── textures/               # Textures
+│   
+│
+└── data/                      
+    ├── animations.json         # Animation Metadata
+    ├── tutorials.json          # Tutorial Metadata
+    └── categories.json         # Categories and tags

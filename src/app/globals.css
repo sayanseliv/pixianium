@@ -46,10 +46,6 @@
 
 	/* Fonts */
 	--font-sans: 'Manrope', Arial, Helvetica, sans-serif;
-
-	/* Defaults */
-	--background: var(--gray-800);
-	--foreground: var(--silver);
 }
 
 /* Light/Dark mode */

@@ -8,9 +8,11 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://pixianium.com'),
 	title: 'Pixianium – Interactive Animation Showcases & Tutorials',
 	description:
 		'Pixianium is a creative playground for exploring animations with Pixi.js, GSAP, Three.js, and Anime.js. Each page is a mini experiment with interactive particles, 3D effects, and transformations, accompanied by tutorials and code examples.',
+	appleWebApp: { capable: true, title: 'Pixianium', statusBarStyle: 'black-translucent' },
 	keywords: [
 		'Pixi.js',
 		'GSAP',
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
 		siteName: 'Pixianium',
 		images: [
 			{
-				url: '/og-image.png',
+				url: '/og-image.jpg',
 				width: 1200,
 				height: 630,
 				alt: 'Pixianium Animation Playground',
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
 		title: 'Pixianium – Interactive Animation Showcases & Tutorials',
 		description:
 			'Creative playground with Pixi.js, GSAP, Three.js, and Anime.js demos. Tutorials and code included.',
-		images: ['/og-image.png'],
+		images: ['/og-image.jpg'],
 		creator: '@pixianium',
 	},
 };
