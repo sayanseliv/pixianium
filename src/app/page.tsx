@@ -54,7 +54,7 @@ export default function Home() {
 					show={showAnimated}
 					onClose={() => setShowAnimated(false)}
 					direction={direction}
-					className='bg-gradient-to-br from-gray-800/90 to-gray-900/90 border-fuchsia-300/30'>
+					contentClassName='bg-gradient-to-br from-gray-800/90 to-gray-900/90 border-fuchsia-300/30'>
 					<div className='text-center'>
 						<h3 className='text-xl font-bold bg-gradient-to-r from-lime-300 via-fuchsia-300 to-blue-400 bg-clip-text text-transparent mb-4'>
 							Animated from {direction}!

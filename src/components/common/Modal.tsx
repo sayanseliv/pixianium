@@ -20,8 +20,8 @@ type ModalProps = {
 	onClose: () => void;
 	children: React.ReactNode;
 	direction?: Direction;
-	className?: string;
 	backdropClassName?: string;
+	contentClassName?: string;
 };
 
 const getModalVariants = (direction: Direction): Variants => {
@@ -161,13 +161,29 @@ const getBackdropVariants = (direction: Direction): Variants => {
 	};
 };
 
+const getPositionClasses = (direction: Direction): string => {
+	const positionClasses: Record<Direction, string> = {
+		center: 'flex items-center justify-center',
+		top: 'flex items-start justify-center pt-8',
+		bottom: 'flex items-end justify-center pb-8',
+		left: 'flex items-center justify-start pl-8',
+		right: 'flex items-center justify-end',
+		topLeft: 'flex items-start justify-start p-8',
+		topRight: 'flex items-start justify-end p-8',
+		bottomLeft: 'flex items-end justify-start p-8',
+		bottomRight: 'flex items-end justify-end p-8',
+	};
+
+	return positionClasses[direction];
+};
+
 const Modal: React.FC<ModalProps> = ({
 	show,
 	onClose,
 	children,
 	direction = 'center',
-	className = '',
 	backdropClassName = '',
+	contentClassName = '',
 }) => {
 	const [mounted, setMounted] = useState(false);
 
@@ -187,12 +203,19 @@ const Modal: React.FC<ModalProps> = ({
 		};
 	}, [show]);
 
-	const stop = (e: React.MouseEvent) => {
+	const handleBackdropClick = (e: React.MouseEvent) => {
+		if (e.currentTarget === e.target) {
+			onClose();
+		}
+	};
+
+	const handleContentClick = (e: React.MouseEvent) => {
 		e.stopPropagation();
 	};
 
 	const modalVariants = getModalVariants(direction);
 	const backdropVariants = getBackdropVariants(direction);
+	const positionClasses = getPositionClasses(direction);
 
 	if (!mounted) return null;
 
@@ -201,29 +224,30 @@ const Modal: React.FC<ModalProps> = ({
 			{show && (
 				<motion.div
 					className={`
-            fixed inset-0 z-[9999]
-            bg-gray-900/80 backdrop-blur-sm
-            overflow-hidden
-            ${backdropClassName}
-          `}
+						fixed inset-0 z-[9999]
+						w-full h-screen
+						bg-gray-900/80 backdrop-blur-sm
+						overflow-hidden
+						${positionClasses}
+						${backdropClassName}
+					`}
 					variants={backdropVariants}
 					initial='hidden'
 					animate='visible'
 					exit='hidden'
-					onClick={onClose}>
+					onClick={handleBackdropClick}>
 					<motion.div
 						className={`
-							absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-							bg-background border border-gray-600/50 shadow-2xl
-							p-6 max-w-lg w-full mx-4
-							backdrop-blur-md
-							${className}
-							`}
+							bg-white dark:bg-gray-800 
+							border border-gray-200 dark:border-gray-700 
+							shadow-2xl
+							${contentClassName}
+						`}
 						variants={modalVariants}
 						initial='hidden'
 						animate='visible'
 						exit='hidden'
-						onClick={stop}>
+						onClick={handleContentClick}>
 						{children}
 					</motion.div>
 				</motion.div>

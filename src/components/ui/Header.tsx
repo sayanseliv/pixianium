@@ -3,7 +3,7 @@ import { MobileMenu } from './MobileMenu';
 
 const navItems = [
 	{ name: 'Home', href: '/', description: 'Pixianium Home Page' },
-	{ name: 'About', href: '/about', description: 'About Pixianium Studio' },
+	{ name: 'About', href: '/about', description: 'About Pixianium' },
 ];
 
 export function Header() {
@@ -37,7 +37,7 @@ export function Header() {
 									className='text-foreground/80 hover:text-blue-400 transition-colors duration-200 font-medium relative group'
 									aria-label={item.description}>
 									{item.name}
-									<span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-fuchsia-300 group-hover:w-full transition-all duration-300'></span>
+									<span className='absolute -bottom-1 left-0 w-0 h-0.5 rounded-lg bg-gradient-to-r from-blue-400 to-fuchsia-300 group-hover:w-full transition-all duration-300'></span>
 								</Link>
 							))}
 						</nav>
