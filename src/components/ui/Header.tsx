@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { MobileMenu } from './MobileMenu';
 
 const navItems = [
 	{ name: 'Home', href: '/', description: 'Pixianium Home Page' },
@@ -13,10 +14,14 @@ export function Header() {
 					<div className='flex h-16 items-center justify-between'>
 						{/* Logo */}
 						<div className='flex items-center'>
-							<Link href='/' className='text-2xl font-bold'>
-								<span className='bg-gradient-to-r from-blue-400 via-fuchsia-300 to-lime-300 bg-clip-text text-transparent hover:from-blue-500 hover:via-fuchsia-400 hover:to-lime-200 transition duration-300'>
+							<Link
+								href='/'
+								className='text-2xl font-bold group relative overflow-hidden'>
+								<span className='bg-gradient-to-r from-blue-400 via-fuchsia-300 to-lime-300 bg-clip-text text-transparent'>
 									Pixianium
 								</span>
+
+								<div className='absolute top-0 left-0 h-full w-0 bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:w-full transition-all duration-1000 skew-x-12'></div>
 							</Link>
 						</div>
 
@@ -38,40 +43,7 @@ export function Header() {
 						</nav>
 
 						{/* Mobile menu button */}
-						<button
-							className='md:hidden p-2 rounded-lg text-foreground hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors'
-							aria-label='Open mobile menu'
-							aria-expanded='false'
-							type='button'>
-							<svg
-								className='h-6 w-6'
-								fill='none'
-								viewBox='0 0 24 24'
-								strokeWidth='1.5'
-								stroke='currentColor'
-								aria-hidden='true'>
-								<path
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
-								/>
-							</svg>
-						</button>
-					</div>
-				</div>
-
-				{/* Mobile Navigation Menu (скрыто по умолчанию) */}
-				<div className='md:hidden border-t border-gray-200 bg-background'>
-					<div className='px-4 py-3 space-y-2'>
-						{navItems.map((item) => (
-							<Link
-								key={item.name}
-								href={item.href}
-								className='block px-3 py-2 text-foreground/80 hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200'
-								aria-label={item.description}>
-								{item.name}
-							</Link>
-						))}
+						<MobileMenu navItems={navItems} />
 					</div>
 				</div>
 			</header>

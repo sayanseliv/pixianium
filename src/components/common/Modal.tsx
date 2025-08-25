@@ -1,6 +1,8 @@
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 type Direction =
 	| 'center'
@@ -167,6 +169,24 @@ const Modal: React.FC<ModalProps> = ({
 	className = '',
 	backdropClassName = '',
 }) => {
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+		return () => setMounted(false);
+	}, []);
+
+	useEffect(() => {
+		if (show) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
+		return () => {
+			document.body.style.overflow = '';
+		};
+	}, [show]);
+
 	const stop = (e: React.MouseEvent) => {
 		e.stopPropagation();
 	};
@@ -174,13 +194,16 @@ const Modal: React.FC<ModalProps> = ({
 	const modalVariants = getModalVariants(direction);
 	const backdropVariants = getBackdropVariants(direction);
 
-	return (
+	if (!mounted) return null;
+
+	return createPortal(
 		<AnimatePresence>
 			{show && (
 				<motion.div
 					className={`
-            fixed inset-0 w-screen h-screen z-[1000]
+            fixed inset-0 z-[9999]
             bg-gray-900/80 backdrop-blur-sm
+            overflow-hidden
             ${backdropClassName}
           `}
 					variants={backdropVariants}
@@ -190,13 +213,12 @@ const Modal: React.FC<ModalProps> = ({
 					onClick={onClose}>
 					<motion.div
 						className={`
-              absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-              bg-background border border-gray-600/50
-              rounded-xl shadow-2xl
-              p-6 max-w-lg w-full mx-4
-              backdrop-blur-md
-              ${className}
-            `}
+							absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+							bg-background border border-gray-600/50 shadow-2xl
+							p-6 max-w-lg w-full mx-4
+							backdrop-blur-md
+							${className}
+							`}
 						variants={modalVariants}
 						initial='hidden'
 						animate='visible'
@@ -206,7 +228,8 @@ const Modal: React.FC<ModalProps> = ({
 					</motion.div>
 				</motion.div>
 			)}
-		</AnimatePresence>
+		</AnimatePresence>,
+		document.body
 	);
 };
 
