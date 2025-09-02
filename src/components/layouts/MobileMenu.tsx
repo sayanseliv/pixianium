@@ -27,15 +27,13 @@ export function MobileMenu({ navItems }: MobileMenuProps) {
 
 	return (
 		<div className='md:hidden'>
-			{/* Модальное окно теперь рендерится через портал */}
+			{/* The modal uses a portal. */}
 			<Modal
 				show={isOpen}
 				onClose={closeMenu}
 				direction='right'
 				backdropClassName='top-[65px] items-start md:hidden'
-				contentClassName='h-full w-full container py-4 px-0 rounded-l-lg'
-				// contentClassName='!absolute !top-0 !right-0 !left-auto !transform-none !translate-x-0 !translate-y-0 !mx-0 rounded-l-lg min-h-[calc(100vh-65px)] w-80 md:hidden'
-			>
+				contentClassName='h-full w-full container py-4 px-0 rounded-l-lg'>
 				<nav className='space-y-4'>
 					{navItems.map((item) => (
 						<Link

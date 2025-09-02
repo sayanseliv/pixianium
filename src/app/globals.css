@@ -67,12 +67,12 @@
 	}
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
 	:root {
 		--background: rgba(245, 247, 250, 0.7);
 		--foreground: #040404;
 	}
-}
+} */
 
 body {
 	background-color: var(--background);

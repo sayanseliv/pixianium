@@ -139,3 +139,17 @@ src/
     ├── animations.json         # Animation Metadata
     ├── tutorials.json          # Tutorial Metadata
     └── categories.json         # Categories and tags
+
+Website Concept
+
+Animation Showcases
+
+Cool demos with Pixi.js, GSAP, Three.js, Anime.js.
+
+Each page is a small experiment (interactive particles, 3D effects, transformations).
+
+Educational Format
+
+Tutorials + code examples.
+
+Explanations of how a specific effect is built.
